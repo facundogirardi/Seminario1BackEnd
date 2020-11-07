@@ -37,11 +37,15 @@ exports.getUsersByMail = async function (req, res, next) {
 
 exports.createUser = async function (req, res, next) {
     // Req.Body contains the form submit values.
-    console.log("llegue al controller",req.body)
+    console.log("llegue al controller de Usuarios",req.body)
     var User = {
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        lastname: req.body.lastname,
+        dni: req.body.dni,
+        root: req.body.root
+
     }
     try {
         // Calling the Service function with the new object from the Request Body
@@ -61,12 +65,15 @@ exports.updateUser = async function (req, res, next) {
         return res.status(400).json({status: 400., message: "Name be present"})
     }
 
-    
     var User = {
        
         name: req.body.name ? req.body.name : null,
         email: req.body.email ? req.body.email : null,
-        password: req.body.password ? req.body.password : null
+        password: req.body.password ? req.body.password : null,
+        lastname: req.body.lastname ? req.body.lastname : null,
+        dni: req.body.dni ? req.body.dni : null,
+        root: req.body.root ? req.body.root : null
+
     }
     try {
         var updatedUser = await UserService.updateUser(User)
