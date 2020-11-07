@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 var UserController = require('../../controllers/users.controller');
 var ContactoController = require('../../controllers/contacto.controller');
+var EncuestaController = require('../../controllers/encuesta.controller');
 var UploadController = require('../../controllers/upload.controller');
 var MailController = require('../../controllers/mail.controller');
 var Authorization = require('../../auth/authorization');
@@ -13,7 +14,7 @@ router.get('/test', function(req, res, next) {
   });
 router.post('/registration', UserController.createUser)
 router.post('/login/', UserController.loginUser)
-router.get('/usuarios', UserController.getUsers)
+router.get('/tusuarios', UserController.getUsers)
 /*router.get('/',Authorization, UserController.getUsers)*/ /*Temporal le quito seguridad*/
 router.post('/userByMail', Authorization, UserController.getUsersByMail)
 router.put('/actualizacion', Authorization, UserController.updateUser)
@@ -22,7 +23,12 @@ router.post('/guardarImgUser',UserController.guardarImagenUser)
 router.post('/uploadImg',UploadController.uploadFilesImgUser);
 router.post('/imgUserByMail',Authorization,UserController.getImagenUserByMail)
 router.post('/sendMail',MailController.sendEmail)
+
 router.post('/contacto', ContactoController.createContacto)
+
+router.post('/encuesta', EncuestaController.createEncuesta)
+router.get('/tencuesta', EncuestaController.getEncuesta)
+/*router.get('/',Authorization, UserController.getUsers)*/ /*Temporal le quito seguridad*/
 
 // Export the Router
 module.exports = router;
