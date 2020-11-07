@@ -4,21 +4,23 @@ var mongoosePaginate = require('mongoose-paginate')
 
 var EncuestaSchema = new mongoose.Schema({
     titulo: String,
-    Pregunta1: String,
-    Respuesta1: String,
-    Varlorref1: String,
-    Pregunta2: String,
-    Respuesta2: String,
-    Varlorref2: String,
-    Pregunta3: String,
-    Respuesta3: String,
-    Varlorref3: String,
-    Pregunta4: String,
-    Respuesta4: String,
-    Varlorref4: String,
-    Pregunta5: String,
-    Respuesta5: String,
-    Varlorref5: String
+    sector: String,
+    tamaño: String,
+    pregunta1: String,
+    respuesta1: String,
+    varlorref1: String,
+    pregunta2: String,
+    respuesta2: String,
+    varlorref2: String,
+    pregunta3: String,
+    respuesta3: String,
+    varlorref3: String,
+    pregunta4: String,
+    respuesta4: String,
+    varlorref4: String,
+    pregunta5: String,
+    respuesta5: String,
+    varlorref5: String
 })
 
 EncuestaSchema.plugin(mongoosePaginate)
