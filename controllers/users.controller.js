@@ -9,7 +9,7 @@ exports.getUsers = async function (req, res, next) {
 
     // Check the existence of the query parameters, If doesn't exists assign a default value
     var page = req.query.page ? req.query.page : 1
-    var limit = req.query.limit ? req.query.limit : 10;
+    var limit = req.query.limit ? req.query.limit : 1000;
     try {
         var Users = await UserService.getUsers({}, page, limit)
         // Return the Users list with the appropriate HTTP password Code and Message.
@@ -23,7 +23,7 @@ exports.getUsersByMail = async function (req, res, next) {
 
     // Check the existence of the query parameters, If doesn't exists assign a default value
     var page = req.query.page ? req.query.page : 1
-    var limit = req.query.limit ? req.query.limit : 10;
+    var limit = req.query.limit ? req.query.limit : 1000;
     let filtro= {email: req.body.email}
     try {
         var Users = await UserService.getUsers(filtro, page, limit)
@@ -143,7 +143,7 @@ exports.getImagenUserByMail = async function (req, res, next) {
 
     // Check the existence of the query parameters, If doesn't exists assign a default value
     var page = req.query.page ? req.query.page : 1
-    var limit = req.query.limit ? req.query.limit : 10;
+    var limit = req.query.limit ? req.query.limit : 1000;
     //obtener filtro
     var filtro = {
         mail: req.body.email
