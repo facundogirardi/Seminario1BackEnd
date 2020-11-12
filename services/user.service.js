@@ -90,12 +90,12 @@ exports.updateUser = async function (user) {
     }
 }
 
-exports.deleteUser = async function (dni) {
+exports.deleteUser = async function (id) {
 
     // Delete the User
     try {
         var deleted = await User.remove({
-            dni: dni
+            _id: id
         })
         if (deleted.n === 0 && deleted.ok === 1) {
             throw Error("User Could not be deleted")
