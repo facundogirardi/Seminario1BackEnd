@@ -61,7 +61,7 @@ exports.createUser = async function (user) {
 
 exports.updateUser = async function (user) {
     
-    var id = {name :user.name}
+    var id = {dni :user.dni}
 
     try {
         //Find the old User Object by the Id
