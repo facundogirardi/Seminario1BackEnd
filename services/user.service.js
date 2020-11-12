@@ -76,8 +76,12 @@ exports.updateUser = async function (user) {
     //Edit the User Object
     var hashedPassword = bcrypt.hashSync(user.password, 8);
     oldUser.name = user.name
+    oldUser.lastname = user.lastname
     oldUser.email = user.email
+    oldUser.dni = user.dni
     oldUser.password = hashedPassword
+    oldUser.root = user.root
+
     try {
         var savedUser = await oldUser.save()
         return savedUser;
@@ -86,12 +90,12 @@ exports.updateUser = async function (user) {
     }
 }
 
-exports.deleteUser = async function (id) {
+exports.deleteUser = async function (dni) {
 
     // Delete the User
     try {
         var deleted = await User.remove({
-            _id: id
+            dni: dni
         })
         if (deleted.n === 0 && deleted.ok === 1) {
             throw Error("User Could not be deleted")
@@ -101,7 +105,6 @@ exports.deleteUser = async function (id) {
         throw Error("Error Occured while Deleting the User")
     }
 }
-
 
 exports.loginUser = async function (user) {
 

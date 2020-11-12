@@ -14,13 +14,11 @@ router.get('/test', function(req, res, next) {
   });
 router.post('/registration', UserController.createUser)
 router.post('/login/', UserController.loginUser)
-router.get('/tusuarios', UserController.getUsers)
-/*router.get('/',Authorization, UserController.getUsers)*/ /*Temporal le quito seguridad*/
+router.get('/tusuarios', Authorization, UserController.getUsers)
+router.get('/',Authorization, UserController.getUsers)
 router.post('/userByMail', Authorization, UserController.getUsersByMail)
 router.put('/actualizacion', UserController.updateUser)
 router.delete('/deleteo', UserController.removeUser)
-/*router.put('/actualizacion', Authorization, UserController.updateUser)*/
-/*router.delete('/deleteo', Authorization, UserController.removeUser)*/
 router.post('/guardarImgUser',UserController.guardarImagenUser)
 router.post('/uploadImg',UploadController.uploadFilesImgUser);
 router.post('/imgUserByMail',Authorization,UserController.getImagenUserByMail)
@@ -28,8 +26,8 @@ router.post('/sendMail',MailController.sendEmail)
 
 router.post('/contacto', ContactoController.createContacto)
 
-router.post('/encuesta', EncuestaController.createEncuesta)
-router.get('/tencuesta', EncuestaController.getEncuesta)
+router.post('/encuesta', Authorization, EncuestaController.createEncuesta)
+router.get('/tencuesta', Authorization, EncuestaController.getEncuesta)
 /*router.get('/',Authorization, UserController.getUsers)*/ /*Temporal le quito seguridad*/
 
 // Export the Router

@@ -61,19 +61,19 @@ exports.createUser = async function (req, res, next) {
 exports.updateUser = async function (req, res, next) {
 
     // Id is necessary for the update
-    if (!req.body.name) {
-        return res.status(400).json({status: 400., message: "Name be present"})
+    if (!req.body.dni) {
+        return res.status(400).json({status: 400., message: "DNI be present"})
     }
 
+    
     var User = {
-       
+      
         name: req.body.name ? req.body.name : null,
-        email: req.body.email ? req.body.email : null,
-        password: req.body.password ? req.body.password : null,
         lastname: req.body.lastname ? req.body.lastname : null,
+        email: req.body.email ? req.body.email : null,
         dni: req.body.dni ? req.body.dni : null,
-        root: req.body.root ? req.body.root : null
-
+        password: req.body.password ? req.body.password : null,
+        root: req.body.root ? req.body.root : "N"
     }
     try {
         var updatedUser = await UserService.updateUser(User)
@@ -85,15 +85,14 @@ exports.updateUser = async function (req, res, next) {
 
 exports.removeUser = async function (req, res, next) {
 
-    var id = req.params.id;
+    var dni = req.params.dni;
     try {
-        var deleted = await UserService.deleteUser(id);
+        var deleted = await UserService.deleteUser(dni);
         res.status(200).send("Succesfully Deleted... ");
     } catch (e) {
         return res.status(400).json({status: 400, message: e.message})
     }
 }
-
 
 exports.loginUser = async function (req, res, next) {
     // Req.Body contains the form submit values.
