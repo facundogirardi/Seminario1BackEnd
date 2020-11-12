@@ -17,8 +17,10 @@ router.post('/login/', UserController.loginUser)
 router.get('/tusuarios', UserController.getUsers)
 /*router.get('/',Authorization, UserController.getUsers)*/ /*Temporal le quito seguridad*/
 router.post('/userByMail', Authorization, UserController.getUsersByMail)
-router.put('/actualizacion', Authorization, UserController.updateUser)
-router.delete('/deleteo', Authorization, UserController.removeUser)
+router.put('/actualizacion', UserController.updateUser)
+router.delete('/deleteo', UserController.removeUser)
+/*router.put('/actualizacion', Authorization, UserController.updateUser)*/
+/*router.delete('/deleteo', Authorization, UserController.removeUser)*/
 router.post('/guardarImgUser',UserController.guardarImagenUser)
 router.post('/uploadImg',UploadController.uploadFilesImgUser);
 router.post('/imgUserByMail',Authorization,UserController.getImagenUserByMail)
