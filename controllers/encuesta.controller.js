@@ -10,18 +10,23 @@ exports.createEncuesta = async function (req, res, next) {
         titulo: req.body.titulo,
         sector: req.body.sector,
         tamaño: req.body.tamaño,
+
         pregunta1: req.body.pregunta1,
         respuesta1: req.body.respuesta1,
         varlorref1: req.body.varlorref1,
+
         pregunta2: req.body.pregunta2,
         respuesta2: req.body.respuesta2,
         varlorref2: req.body.varlorref2,
+
         pregunta3: req.body.pregunta3,
         respuesta3: req.body.respuesta3,
         varlorref3: req.body.varlorref3,
+
         pregunta4: req.body.pregunta4,
         respuesta4: req.body.respuesta4,
         varlorref4: req.body.varlorref4,
+
         pregunta5: req.body.pregunta5,
         respuesta5: req.body.respuesta5,
         varlorref5: req.body.varlorref5,
@@ -50,5 +55,26 @@ exports.getEncuesta = async function (req, res, next) {
     } catch (e) {
         //Return an Error Response Message with Code and the Error Message.
         return res.status(400).json({status: 400, message: e.message});
+    }
+}
+
+exports.updateEncuesta = async function (req, res, next) {
+
+    // Id is necessary for the update
+    if (!req.body.id) {
+        return res.status(400).json({status: 400., message: "ID be present"})
+    }
+   
+    var Encuesta = {
+      
+        titulo: req.body.titulo ? req.body.titulo : null,
+        sector: req.body.sector ? req.body.sector : null,
+        tamaño: req.body.tamaño ? req.body.tamaño : null,
+    }
+    try {
+        var updatedEncuesta = await EncuestaService.updateEncuesta(Encuesta)
+        return res.status(200).json({status: 200, data: updatedEncuesta, message: "Succesfully Updated Encuesta"})
+    } catch (e) {
+        return res.status(400).json({status: 400., message: e.message})
     }
 }

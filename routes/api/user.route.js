@@ -28,6 +28,7 @@ router.post('/contacto', ContactoController.createContacto)
 
 router.post('/encuesta', EncuestaController.createEncuesta)
 router.get('/tencuesta', Authorization, EncuestaController.getEncuesta)
+router.put('/aencuesta', EncuestaController.updateEncuesta)
 /*router.get('/',Authorization, UserController.getUsers)*/ /*Temporal le quito seguridad*/
 
 // Export the Router

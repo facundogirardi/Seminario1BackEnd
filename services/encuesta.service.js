@@ -12,21 +12,27 @@ exports.createEncuesta = async function (encuesta) {
         titulo: encuesta.titulo,
         sector: encuesta.sector,
         tamaño: encuesta.tamaño,
+
         pregunta1: encuesta.pregunta1,
         respuesta1: encuesta.respuesta1,
         varlorref1: encuesta.varlorref1,
+
         pregunta2: encuesta.pregunta2,
         respuesta2: encuesta.respuesta2,
         varlorref2: encuesta.varlorref2,
+
         pregunta3: encuesta.pregunta3,
         respuesta3: encuesta.respuesta3,
         varlorref3: encuesta.varlorref3,
+
         pregunta4: encuesta.pregunta4,
         respuesta4: encuesta.respuesta4,
         varlorref4: encuesta.varlorref4,
+
         pregunta5: encuesta.pregunta5,
         respuesta5: encuesta.respuesta5,
         varlorref5: encuesta.varlorref5,
+        
         date: new Date()
 
     })
@@ -66,5 +72,32 @@ exports.getEncuesta = async function (query, page, limit) {
         // return a Error message describing the reason 
         console.log("error services",e)
         throw Error('Error while Paginating Encuesta');
+    }
+}
+
+exports.updateEncuesta = async function (encuesta) {
+    
+    var id = {id :encuesta.id}
+
+    try {
+        //Find the old User Object by the Id
+        var oldEncuesta = await Encuesta.findOne(id);
+    } catch (e) {
+        throw Error("Error occured while Finding the Encuesta")
+    }
+    // If no old User Object exists return false
+    if (!oldEncuesta) {
+        return false;
+    }
+    //Edit the User Object
+    oldEncuesta.titulo = encuesta.titulo
+    oldEncuesta.sector = encuesta.sector
+    oldEncuesta.tamaño = encuesta.tamaño
+ 
+    try {
+        var savedEncuesta = await oldEncuesta.save()
+        return savedEncuesta;
+    } catch (e) {
+        throw Error("And Error occured while updating the Encuesta");
     }
 }
