@@ -26,7 +26,7 @@ router.post('/sendMail',MailController.sendEmail)
 
 router.post('/contacto', ContactoController.createContacto)
 
-router.post('/encuesta', Authorization, EncuestaController.createEncuesta)
+router.post('/encuesta', EncuestaController.createEncuesta)
 router.get('/tencuesta', Authorization, EncuestaController.getEncuesta)
 /*router.get('/',Authorization, UserController.getUsers)*/ /*Temporal le quito seguridad*/
 
