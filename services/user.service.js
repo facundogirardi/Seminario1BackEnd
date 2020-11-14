@@ -102,6 +102,7 @@ exports.deleteUser = async function (id) {
         }
         return deleted;
     } catch (e) {
+        console.log(e)
         throw Error("Error Occured while Deleting the User")
     }
 }

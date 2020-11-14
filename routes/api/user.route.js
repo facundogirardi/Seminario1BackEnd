@@ -14,17 +14,17 @@ router.get('/test', function(req, res, next) {
   });
 router.post('/registration', UserController.createUser)
 router.post('/login/', UserController.loginUser)
-router.get('/tusuarios', Authorization, UserController.getUsers)
+router.get('/tusuarios', UserController.getUsers)
 router.get('/',Authorization, UserController.getUsers)
 router.post('/userByMail', Authorization, UserController.getUsersByMail)
 router.put('/actualizacion', UserController.updateUser)
-router.delete('/:id', UserController.removeUser)
 router.post('/guardarImgUser',UserController.guardarImagenUser)
 router.post('/uploadImg',UploadController.uploadFilesImgUser);
 router.post('/imgUserByMail',Authorization,UserController.getImagenUserByMail)
 router.post('/sendMail',MailController.sendEmail)
 
 router.post('/contacto', ContactoController.createContacto)
+router.post('/usr', Authorization, UserController.removeUser)
 
 router.post('/encuesta', EncuestaController.createEncuesta)
 router.get('/tencuesta', Authorization, EncuestaController.getEncuesta)

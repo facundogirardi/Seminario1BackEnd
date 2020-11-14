@@ -84,16 +84,20 @@ exports.updateUser = async function (req, res, next) {
 }
 
 exports.removeUser = async function (req, res, next) {
-
-    var id = req.params.id;
+    console.log('estamos aca')
+    console.log(req.body)
+    var id = req.body.id;
+    console.log(id);  
     try {
         var deleted = await UserService.deleteUser(id);
-        res.status(200).send("Succesfully Deleted... ");
+        return res.status(200).send("Succesfully Deleted... ");
+        
+        
     } catch (e) {
+        console.log(e)
         return res.status(400).json({status: 400, message: e.message})
     }
 }
-
 
 exports.loginUser = async function (req, res, next) {
     // Req.Body contains the form submit values.
