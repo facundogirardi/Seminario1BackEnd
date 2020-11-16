@@ -61,7 +61,7 @@ exports.getEncuesta = async function (req, res, next) {
 exports.updateEncuesta = async function (req, res, next) {
 
     // Id is necessary for the update
-    if (!req.body.id) {
+    if (!req.body.titulo) {
         return res.status(400).json({status: 400., message: "ID be present"})
     }
     //console.log("idsss",id)

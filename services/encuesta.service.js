@@ -76,7 +76,7 @@ exports.getEncuesta = async function (query, page, limit) {
 
 exports.updateEncuesta = async function (encuesta) {
     
-    var id = {id :encuesta.id}
+    var id = {titulo :encuesta.titulo}
     
 
     try {

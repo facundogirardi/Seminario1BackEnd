@@ -9,19 +9,19 @@ var Authorization = require('../../auth/authorization');
 
 // Authorize each API with middleware and map to the Controller Functions
 /* GET users listing. */
-router.get('/test', function(req, res, next) {
-    res.send('Llegaste a la ruta de  api/user.routes');
-  });
+router.get('/test', function (req, res, next) {
+  res.send('Llegaste a la ruta de  api/user.routes');
+});
 router.post('/registration', UserController.createUser)
 router.post('/login/', UserController.loginUser)
 router.get('/tusuarios', UserController.getUsers)
-router.get('/',Authorization, UserController.getUsers)
+router.get('/', Authorization, UserController.getUsers)
 router.post('/userByMail', Authorization, UserController.getUsersByMail)
 router.put('/actualizacion', UserController.updateUser)
-router.post('/guardarImgUser',UserController.guardarImagenUser)
-router.post('/uploadImg',UploadController.uploadFilesImgUser);
-router.post('/imgUserByMail',Authorization,UserController.getImagenUserByMail)
-router.post('/sendMail',MailController.sendEmail)
+router.post('/guardarImgUser', UserController.guardarImagenUser)
+router.post('/uploadImg', UploadController.uploadFilesImgUser);
+router.post('/imgUserByMail', Authorization, UserController.getImagenUserByMail)
+router.post('/sendMail', MailController.sendEmail)
 
 router.post('/contacto', ContactoController.createContacto)
 router.post('/usr', Authorization, UserController.removeUser)

@@ -16,14 +16,14 @@ exports.getUsers = async function (query, page, limit) {
     }
     // Try Catch the awaited promise to handle the error 
     try {
-        console.log("Query",query)
+        console.log("Query", query)
         var Users = await User.paginate(query, options)
         // Return the Userd list that was retured by the mongoose promise
         return Users;
 
     } catch (e) {
         // return a Error message describing the reason 
-        console.log("error services",e)
+        console.log("error services", e)
         throw Error('Error while Paginating Users');
     }
 }
@@ -31,7 +31,7 @@ exports.getUsers = async function (query, page, limit) {
 exports.createUser = async function (user) {
     // Creating a new Mongoose Object by using the new keyword
     var hashedPassword = bcrypt.hashSync(user.password, 8);
-    
+
     var newUser = new User({
         name: user.name,
         lastname: user.lastname,
@@ -54,18 +54,18 @@ exports.createUser = async function (user) {
         return token;
     } catch (e) {
         // return a Error message describing the reason 
-        console.log(e)    
+        console.log(e)
         throw Error("Error while Creating User")
     }
 }
 
 exports.updateUser = async function (user) {
-    
-    var id = {id :user.id}
-    
+
+    var ids = { dni: user.dni }
+
     try {
         //Find the old User Object by the Id
-        var oldUser = await User.findOne(id);
+        var oldUser = await User.findOne(ids);
     } catch (e) {
         throw Error("Error occured while Finding the User")
     }
@@ -84,6 +84,7 @@ exports.updateUser = async function (user) {
 
     try {
         var savedUser = await oldUser.save()
+        console.log("sdsds", savedUser)
         return savedUser;
     } catch (e) {
         throw Error("And Error occured while updating the User");
@@ -112,7 +113,7 @@ exports.loginUser = async function (user) {
     // Creating a new Mongoose Object by using the new keyword
     try {
         // Find the User 
-        console.log("login:",user)
+        console.log("login:", user)
         var _details = await User.findOne({
             email: user.email
         });
@@ -124,7 +125,7 @@ exports.loginUser = async function (user) {
         }, process.env.SECRET, {
             expiresIn: 86400 // expires in 24 hours
         });
-        return {token:token, user:_details};
+        return { token: token, user: _details };
     } catch (e) {
         // return a Error message describing the reason     
         throw Error("Error while Login User")
