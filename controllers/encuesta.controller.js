@@ -64,17 +64,33 @@ exports.updateEncuesta = async function (req, res, next) {
     if (!req.body.id) {
         return res.status(400).json({status: 400., message: "ID be present"})
     }
-   
+    //console.log("idsss",id)
     var Encuesta = {
       
         titulo: req.body.titulo ? req.body.titulo : null,
         sector: req.body.sector ? req.body.sector : null,
-        tamaño: req.body.tamaño ? req.body.tamaño : null,
+        tamaño: req.body.tamaño ? req.body.tamaño : null
     }
     try {
         var updatedEncuesta = await EncuestaService.updateEncuesta(Encuesta)
         return res.status(200).json({status: 200, data: updatedEncuesta, message: "Succesfully Updated Encuesta"})
     } catch (e) {
         return res.status(400).json({status: 400., message: e.message})
+    }
+}
+
+exports.removeEncuesta = async function (req, res, next) {
+    console.log('estamos aca')
+    console.log(req.body)
+    var id = req.body.id;
+    console.log(id);  
+    try {
+        var deleted = await EncuestaService.deleteEncuesta(id);
+        return res.status(200).send("Succesfully Deleted... ");
+        
+        
+    } catch (e) {
+        console.log(e)
+        return res.status(400).json({status: 400, message: e.message})
     }
 }

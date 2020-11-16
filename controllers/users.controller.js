@@ -59,13 +59,12 @@ exports.createUser = async function (req, res, next) {
 }
 
 exports.updateUser = async function (req, res, next) {
-
-    // Id is necessary for the update
-    if (!req.body.dni) {
-        return res.status(400).json({status: 400., message: "DNI be present"})
-    }
-
     
+    // Id is necessary for the update
+    if (!req.body.id) {
+        return res.status(400).json({status: 400., message: "ID be present"})
+    }
+   
     var User = {
       
         name: req.body.name ? req.body.name : null,
@@ -165,6 +164,4 @@ exports.getImagenUserByMail = async function (req, res, next) {
         console.log(e)
         return res.status(400).json({status: 400, message: e.message});
     }
-}
-    
-    
+}    

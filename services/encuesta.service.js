@@ -1,6 +1,5 @@
 // Gettign the Newly created Mongoose Model we just created 
 var Encuesta = require('../models/Encuesta.model');
-var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 
 // Saving the context of this module inside the _the variable
@@ -78,6 +77,7 @@ exports.getEncuesta = async function (query, page, limit) {
 exports.updateEncuesta = async function (encuesta) {
     
     var id = {id :encuesta.id}
+    
 
     try {
         //Find the old User Object by the Id
@@ -99,5 +99,22 @@ exports.updateEncuesta = async function (encuesta) {
         return savedEncuesta;
     } catch (e) {
         throw Error("And Error occured while updating the Encuesta");
+    }
+}
+
+exports.deleteEncuesta = async function (id) {
+
+    // Delete the Encuesta
+    try {
+        var deleted = await Encuesta.remove({
+            _id: id
+        })
+        if (deleted.n === 0 && deleted.ok === 1) {
+            throw Error("User Could not be deleted")
+        }
+        return deleted;
+    } catch (e) {
+        console.log(e)
+        throw Error("Error Occured while Deleting the User")
     }
 }

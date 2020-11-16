@@ -29,7 +29,7 @@ router.post('/usr', Authorization, UserController.removeUser)
 router.post('/encuesta', EncuestaController.createEncuesta)
 router.get('/tencuesta', Authorization, EncuestaController.getEncuesta)
 router.put('/aencuesta', EncuestaController.updateEncuesta)
-/*router.get('/',Authorization, UserController.getUsers)*/ /*Temporal le quito seguridad*/
+router.post('/bencuesta', Authorization, EncuestaController.removeEncuesta)
 
 // Export the Router
 module.exports = router;
