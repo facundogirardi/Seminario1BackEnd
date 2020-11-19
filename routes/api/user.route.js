@@ -27,7 +27,7 @@ router.post('/contacto', ContactoController.createContacto)
 router.post('/usr', Authorization, UserController.removeUser)
 
 router.post('/encuesta', EncuestaController.createEncuesta)
-router.get('/tencuesta', Authorization, EncuestaController.getEncuesta)
+router.get('/tencuesta', EncuestaController.getEncuesta)
 router.put('/aencuesta', EncuestaController.updateEncuesta)
 router.post('/bencuesta', Authorization, EncuestaController.removeEncuesta)
 

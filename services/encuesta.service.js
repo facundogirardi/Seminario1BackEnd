@@ -13,25 +13,22 @@ exports.createEncuesta = async function (encuesta) {
         tamaño: encuesta.tamaño,
 
         pregunta1: encuesta.pregunta1,
-        respuesta1: encuesta.respuesta1,
-        varlorref1: encuesta.varlorref1,
-
-        pregunta2: encuesta.pregunta2,
-        respuesta2: encuesta.respuesta2,
-        varlorref2: encuesta.varlorref2,
-
-        pregunta3: encuesta.pregunta3,
-        respuesta3: encuesta.respuesta3,
-        varlorref3: encuesta.varlorref3,
-
-        pregunta4: encuesta.pregunta4,
-        respuesta4: encuesta.respuesta4,
-        varlorref4: encuesta.varlorref4,
-
-        pregunta5: encuesta.pregunta5,
-        respuesta5: encuesta.respuesta5,
-        varlorref5: encuesta.varlorref5,
-        
+        P1respuesta1: encuesta.P1respuesta1,
+        P1opcion1: encuesta.P1opcion1,
+        P1respuesta2: encuesta.P1respuesta2,
+        P1opcion2: encuesta.P1opcion2,
+        P1valorref1: encuesta.P1valorref1,
+        /*
+        P1respuesta3: req.body.P1respuesta3,
+        P1opcion3: req.body.P1opcion3,
+        P1respuesta4: req.body.P1respuesta4,
+        P1opcion4: req.body.P1opcion4,
+        P1respuesta5: req.body.P1respuesta5,
+        P1opcion5: req.body.P1opcion5,
+        P1valorref1P: req.body.P1varlorref1P,
+        P1valorref1M: req.body.P1varlorref1M,
+*/
+    
         date: new Date()
 
     })
@@ -76,12 +73,12 @@ exports.getEncuesta = async function (query, page, limit) {
 
 exports.updateEncuesta = async function (encuesta) {
     
-    var id = {titulo :encuesta.titulo}
+    var ids = {id :encuesta.id}
     
 
     try {
         //Find the old User Object by the Id
-        var oldEncuesta = await Encuesta.findOne(id);
+        var oldEncuesta = await Encuesta.findOne(ids);
     } catch (e) {
         throw Error("Error occured while Finding the Encuesta")
     }

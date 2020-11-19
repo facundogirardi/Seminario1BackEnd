@@ -12,24 +12,21 @@ exports.createEncuesta = async function (req, res, next) {
         tamaño: req.body.tamaño,
 
         pregunta1: req.body.pregunta1,
-        respuesta1: req.body.respuesta1,
-        varlorref1: req.body.varlorref1,
-
-        pregunta2: req.body.pregunta2,
-        respuesta2: req.body.respuesta2,
-        varlorref2: req.body.varlorref2,
-
-        pregunta3: req.body.pregunta3,
-        respuesta3: req.body.respuesta3,
-        varlorref3: req.body.varlorref3,
-
-        pregunta4: req.body.pregunta4,
-        respuesta4: req.body.respuesta4,
-        varlorref4: req.body.varlorref4,
-
-        pregunta5: req.body.pregunta5,
-        respuesta5: req.body.respuesta5,
-        varlorref5: req.body.varlorref5,
+        P1respuesta1: req.body.P1respuesta1,
+        P1opcion1: req.body.P1opcion1,
+        P1respuesta2: req.body.P1respuesta2,
+        P1opcion2: req.body.P1opcion2,
+        P1valorref1: req.body.P1valorref1,
+        /*
+        P1respuesta3: req.body.P1respuesta3,
+        P1opcion3: req.body.P1opcion3,
+        P1respuesta4: req.body.P1respuesta4,
+        P1opcion4: req.body.P1opcion4,
+        P1respuesta5: req.body.P1respuesta5,
+        P1opcion5: req.body.P1opcion5,
+        P1valorref1P: req.body.P1varlorref1P,
+        P1valorref1M: req.body.P1varlorref1M,
+*/
  
     }
     try {
@@ -61,7 +58,7 @@ exports.getEncuesta = async function (req, res, next) {
 exports.updateEncuesta = async function (req, res, next) {
 
     // Id is necessary for the update
-    if (!req.body.titulo) {
+    if (!req.body.id) {
         return res.status(400).json({status: 400., message: "ID be present"})
     }
     //console.log("idsss",id)
