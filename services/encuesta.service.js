@@ -1,13 +1,11 @@
-// Gettign the Newly created Mongoose Model we just created 
 var Encuesta = require('../models/Encuesta.model');
 var jwt = require('jsonwebtoken');
 
-// Saving the context of this module inside the _the variable
 _this = this
 
+// Creo encuesta
 exports.createEncuesta = async function (encuesta) {
-    // Creating a new Mongoose Object by using the new keyword
-     var newEncuesta = new Encuesta({
+    var newEncuesta = new Encuesta({
         titulo: encuesta.titulo,
         sector: encuesta.sector,
         tamaño: encuesta.tamaño,
@@ -37,7 +35,7 @@ exports.createEncuesta = async function (encuesta) {
         P2respuesta5: encuesta.P2respuesta5,
         P2opcion5: encuesta.P2opcion5,
         P2valorref1: encuesta.P2valorref1,
-        
+
         pregunta3: encuesta.pregunta3,
         P3respuesta1: encuesta.P3respuesta1,
         P3opcion1: encuesta.P3opcion1,
@@ -82,7 +80,6 @@ exports.createEncuesta = async function (encuesta) {
     })
 
     try {
-        // Saving the Encuesta 
         var savedEncuesta = await newEncuesta.save();
         var token = jwt.sign({
             id: savedEncuesta._id
@@ -91,75 +88,42 @@ exports.createEncuesta = async function (encuesta) {
         });
         return token;
     } catch (e) {
-        // return a Error message describing the reason 
-        console.log(e)    
-        throw Error("Error while Creating Encuesta")
+        console.log(e)
+        throw Error("Error al crear la encuesta")
     }
 }
 
-// Async function to get the Encuesta List
+// Recupero encuesta
 exports.getEncuesta = async function (query, page, limit) {
 
-    // Options setup for the mongoose paginate
     var options = {
         page,
         limit
     }
-    // Try Catch the awaited promise to handle the error 
+
     try {
-        console.log("Query",query)
         var Encuestas = await Encuesta.paginate(query, options)
-        // Return the Encuesta list that was retured by the mongoose promise
         return Encuestas;
 
     } catch (e) {
-        // return a Error message describing the reason 
-        console.log("error services",e)
-        throw Error('Error while Paginating Encuesta');
+        console.log("error servicio", e)
+        throw Error('Error en el paginado de las encuestas');
     }
 }
 
-exports.updateEncuesta = async function (encuesta) {
-    
-    var ids = {id :encuesta.id}
-    
-
-    try {
-        //Find the old User Object by the Id
-        var oldEncuesta = await Encuesta.findOne(ids);
-    } catch (e) {
-        throw Error("Error occured while Finding the Encuesta")
-    }
-    // If no old User Object exists return false
-    if (!oldEncuesta) {
-        return false;
-    }
-    //Edit the User Object
-    oldEncuesta.titulo = encuesta.titulo
-    oldEncuesta.sector = encuesta.sector
-    oldEncuesta.tamaño = encuesta.tamaño
- 
-    try {
-        var savedEncuesta = await oldEncuesta.save()
-        return savedEncuesta;
-    } catch (e) {
-        throw Error("And Error occured while updating the Encuesta");
-    }
-}
-
+// Borro encuestas
 exports.deleteEncuesta = async function (id) {
 
-    // Delete the Encuesta
     try {
         var deleted = await Encuesta.remove({
             _id: id
         })
         if (deleted.n === 0 && deleted.ok === 1) {
-            throw Error("User Could not be deleted")
+            throw Error("Encuesta no pudo se eliminada")
         }
         return deleted;
     } catch (e) {
         console.log(e)
-        throw Error("Error Occured while Deleting the User")
+        throw Error("Error al eliminar la encuesta")
     }
 }
