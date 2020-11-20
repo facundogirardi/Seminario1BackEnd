@@ -214,6 +214,12 @@ Campos para delete
 
 <img src="https://i.ibb.co/FVBq1RM/getencuestas.png"/>
 
+<b><p>Recuperar Encuestas por Titulo (/encuestaid)</b></p>
+<p>Se utiliza para poder recuperar filtrada la lista de encuestas por titulo</p>
+<p>Metodo : POST</p>
+
+<img src="https://i.ibb.co/D843TLt/2020-11-20-17-03-06-Window.png"/>
+
 ## Base de Datos
 
 <p>Para la base de datos utilizamos MongoDB</p>
