@@ -1,73 +1,133 @@
-# nodejs-secure restful-api with jwt web-Token
+ ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
 
-### Prerequisites
+## Presentacion del producto
+![Product Presentation Image](https://i.ibb.co/BzWtgP6/2020-11-20-09-37-06-Window.png)
 
-Node
-npm
-Express
-jsonwebtoken
-mongoose
+## Descripcion
 
-How to create a RESTful CRUD API using Nodejs?
+<p>Nuestro proyecto consta en hacer un benchmarking sobre la fundacion "Observatorio pyme" donde las Pymes podran realizar consultas de como se encuentra su empresa en el mercado.</p>
+<p>A continuacion les dejamos un link para que vean el contexto del proyecto en el cual estamos trabajando.</p>
+https://www.observatoriopyme.org.ar/la-fundacion/historia-y-actualidad/
 
-And how to secure our API with JWT Web-Token?
+## Tabla de contenidos
 
-API using mongodb as the database.
+* [Integrantes](#Integrantes)
+* [Tecnologia](#Tecnologia)
+* [Instalacion](#Instalacion)
+* [End-Points](#End-Points)
+* [Base-de-Datos] (#Base de Datos)
+* [Recursos](#Recursos)
+* [Flujo](#Flujo)
 
-With this code, we can check our user and password and pass back a token in a JSON response. 
-We are using mongodb to register the user and jsonwebtoken to create the token.
+## Integrantes grupo 6
 
+* Alcantara Yrigoyen, Stefano Guillermo <b>Legajo : 1058188</b>
+* Camicha, Nicolas                      <b>Legajo : 1101634</b>
+* Girardi, Facundo Martin               <b>Legajo : 1084454</b>
+* Marchant Rojas, Luis Jose Javier      <b>Legajo : 1042891</b>
+* Venzmer, Nicolas Alejandro            <b>Legajo : 1076345</b>
 
-### Clone
+## Tecnologia
 
-- Clone this repo to your local machine using [https://github.com/Abdurraheem/REST-API-JWTWEB-TOKEN.git]
+<img src="https://i.ibb.co/GR1VxFh/material-ui.png" width="64" height="64" /><img src="https://i.ibb.co/bsJMq4X/aps-504x498-small-transparent-pad-600x600-f8f8f8-u1.jpg" width="64" height="64" />
 
-### Setup
+## Instalacion
 
-> now install npm and packages
+## FrontEnd
 
-```shell
-$ npm install
-$ bower install (if require)
-```
-## Running the tests
+* Descargar la aplicacion del repositorio https://gitlab.com/facundogirardi/api-benchmarking
+* En la carpeta del proyecto ejecutar <b>npm install</b>
+* <b>cd</b> aplicaciones-interactivas
+* Luego dar <b>npm start</b>
+* Se levantará en local http://localhost:3000/
 
-It consist of a User model and controller. The model
-defines the data, and the controller will contain all 
-the business logic needed to interact with the database. 
+## BackEnd
 
-It has a db file which will be used to
-connect the app to the database, and an app file used
-for bootstrapping the application itself.
+* El backend de la aplicacion se encuesta en ek siguiente repositorio https://gitlab.com/facundogirardi/aplicaciones-interactivas-backend
+* En la carpeta del proyecto ejecutar <b>npm install</b>
+* <b>cd</b> aplicaciones-interactivas
+* Luego dar <b>npm start</b> o <b>nodemon --exec npm start</b> (Requiere tener instalado el nodemon*)
+* Se levantará en local http://localhost:4000/
+* Tambien se encuentra hosteado en Heroku https://api-benchmark-back.herokuapp.com/
 
-The server file is used to spin up the server and tells the
-app to listen on a specific port.
+## End-Points
 
-Let’s test this out. Why not?
-Open up your REST API testing tool of choice, I use Postman or Insomnia, but any will do.
+El backend tiene configurado los siguientes endpoints :
 
-Go back to your terminal and run node server.js. If it is running, stop it, save all changes to you files, and run node server.js again.
+<b><p>Contacto (/contacto)</b></p>
+<p>Se utiliza para poder registrar los datos de contacto del usuario</p>
+<p>Metodo : POST</p>
 
-Open up your REST API testing tool of choice, I use Postman or Insomnia, but any will do.
+ * razonsocial: String
+ * email: String
+ * region: String
+ * tamaño: String
 
-Go back to your terminal and run node server.js. If it is running, stop it, save all changes to you files, and run node server.js again.
+<img src="https://i.ibb.co/R2Sn3JY/contacto.png"/>
 
-Open up Postman and hit the register endpoint (http://localhost:3000/api/users/registration). Make sure to pick the POST method and x-www-form-url-encoded.
-Now, add some values. My user’s name is 'Mohammad' , email is 'mohdabdur786@gmail.com' and his password is 'Wow@123' 
+<b><p>Registrar Usuario (/registration)</b></p>
+<p>Se utiliza para poder registrar los usuarios de acceso a la aplicacion</p>
+<p>Metodo : POST</p>
 
-See the response? The token is a long jumbled string. 
-To try out the http://localhost:3000/api/users endpoint, first copy the token. Change the URL to http://localhost:3000/api/users , and the method to GET.
-Now you can add the token to the request header.
+ * name: String
+ * lastname: String
+ * email: String
+ * dni: String
+ * password: String
+ * root: String
+ * date: Date
 
-You will get list of users...
+<img src="https://i.ibb.co/TLD9D1x/registro.png"/>
 
-Try to update users the http://localhost:3000/api/users endpoint, and the method to PUT with x-www-form-url-encoded.
-Now, add some values.Update name is 'Abdur' , email is 'mohdabdur786@gmail.com' and his password is 'Wow@123' 
+<b><p>Recuperar Usuarios (/tusuarios)</b></p>
+<p>Se utiliza para poder recuperar la lista de usuarios existentes</p>
+<p>Metodo : GET</p>
 
-Delete some users hit http://localhost:3000/api/users/(_id) endpoint with the method DELETE.
+<img src="https://i.ibb.co/jTgLzzP/traerusuarios.png"/>
 
-##Disclaimer: The logout endpoint is not needed. The act of logging out can solely be done through the client side. A token is usually kept in a cookie or the browser’s localstorage. Logging out is as simple as destroying the token on the client. This /logout endpoint is created to logically depict what happens when you log out. The token gets set to null.
+<b><p>Actualizar Usuario (/actualizacion)</b></p>
+<p>Se utiliza para actualizar los usuarios de acceso a la aplicacion, la clave del usuario es el DNI</p>
+<p>Metodo : PUT</p>
 
-## License
+Campos actualizables
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+ * name: String
+ * lastname: String
+ * email: String
+ * password: String
+
+<img src="https://i.ibb.co/HXRVPrG/actualizacion-user.png"/>
+
+<b><p>Eliminar Usuario (/usr)</b></p>
+<p>Se utiliza para eliminar los usuarios de acceso a la aplicacion</p>
+<p>Metodo : POST</p>
+
+Campos para delete
+
+ * id: String
+
+<img src="https://i.ibb.co/qFvm98z/2020-11-20-10-37-36-Window.png"/>
+
+<b><p>Login Usuario (/actualizacion)</b></p>
+<p>Se utiliza para acceder a la aplicacion</p>
+<p>Metodo : POST</p>
+
+Campos
+
+ * email: String
+ * password: String
+
+ Aclaracion, la password se guarda hasheada y se encripta y desencripta segun la necesidad
+
+<img src="https://i.ibb.co/zsmS41j/2020-11-20-10-44-27-Window.png"/>
+
+## Base de Datos
+
+<p>Para la base de datos utilizamos MongoDB</p>
+<p>Poseemos el siguiente Cluster configurado <b>cluster0.02zbr.mongodb.net</b></p>
+<p>En la ruta /api-benchmark/models, se encuentran los modelos de datos para los documentos</p>
+
+## Recursos
+
+- GIT: <https://gitlab.com/facundogirardi/api-benchmarking>
+- GIT: <https://gitlab.com/facundogirardi/aplicaciones-interactivas-backend>
