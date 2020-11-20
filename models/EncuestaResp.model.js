@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var mongoosePaginate = require('mongoose-paginate')
 
-var EncuestaSchema = new mongoose.Schema({
+var EncuestaRespSchema = new mongoose.Schema({
     titulo: String,
     sector: String,
     tamaño: String,
@@ -74,7 +74,7 @@ var EncuestaSchema = new mongoose.Schema({
 
 })
 
-EncuestaSchema.plugin(mongoosePaginate)
-const Encuesta = mongoose.model('Encuesta', EncuestaSchema)
+EncuestaRespSchema.plugin(mongoosePaginate)
+const EncuestaResp = mongoose.model('EncuestaResp', EncuestaRespSchema)
 
-module.exports = Encuesta;
+module.exports = EncuestaResp;
