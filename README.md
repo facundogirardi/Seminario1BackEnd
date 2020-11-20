@@ -121,7 +121,7 @@ Campos
 
 <img src="https://i.ibb.co/zsmS41j/2020-11-20-10-44-27-Window.png"/>
 
-## Base de Datos
+## Base-de-Datos
 
 <p>Para la base de datos utilizamos MongoDB</p>
 <p>Poseemos el siguiente Cluster configurado <b>cluster0.02zbr.mongodb.net</b></p>
