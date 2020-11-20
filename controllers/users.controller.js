@@ -64,7 +64,6 @@ exports.updateUser = async function (req, res, next) {
 exports.removeUser = async function (req, res, next) {
 
     var id = req.body.id;
-    console.log(id);
     try {
         var deleted = await UserService.deleteUser(id);
         return res.status(200).send("Usuario eliminado exitosamente");
