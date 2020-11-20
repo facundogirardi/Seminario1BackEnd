@@ -35,7 +35,7 @@ exports.createEncuesta = async function (req, res, next) {
         P2respuesta5: req.body.P2respuesta5,
         P2opcion5: req.body.P2opcion5,
         P2valorref1: req.body.P2valorref1,
-       
+
         pregunta3: req.body.pregunta3,
         P3respuesta1: req.body.P3respuesta1,
         P3opcion1: req.body.P3opcion1,
@@ -79,10 +79,10 @@ exports.createEncuesta = async function (req, res, next) {
     try {
 
         var createdEncuesta = await EncuestaService.createEncuesta(Encuesta)
-        return res.status(201).json({createdEncuesta, message: "Encuesta creada exitosamente"})
+        return res.status(201).json({ createdEncuesta, message: "Encuesta creada exitosamente" })
     } catch (e) {
         console.log(e)
-        return res.status(400).json({status: 400, message: "Encuesta no pudo ser creada"})
+        return res.status(400).json({ status: 400, message: "Encuesta no pudo ser creada" })
     }
 }
 
@@ -93,23 +93,44 @@ exports.getEncuesta = async function (req, res, next) {
     var limit = req.query.limit ? req.query.limit : 1000;
     try {
         var Encuesta = await EncuestaService.getEncuesta({}, page, limit)
-        return res.status(200).json({status: 200, data: Encuesta, message: "Encuestas recuperadas exitosamente"});
+        return res.status(200).json({ status: 200, data: Encuesta, message: "Encuestas recuperadas exitosamente" });
     } catch (e) {
-        return res.status(400).json({status: 400, message: e.message});
+        return res.status(400).json({ status: 400, message: e.message });
+    }
+}
+
+// Traigo encuestas por ID
+exports.getEncuestaID = async function (req, res, next) {
+
+    var page = req.query.page ? req.query.page : 1
+    var limit = req.query.limit ? req.query.limit : 1000;
+    let filtro = {
+        titulo: req.body.titulo
+    }
+    try {
+        var Encuesta = await EncuestaService.getEncuestaID(filtro, page, limit)
+
+        if (Encuesta.total === 0)
+            return res.status(201).json({ status: 201, data: Encuesta, message: "No existe la encuesta por ID" });
+        else
+            return res.status(200).json({ status: 200, data: Encuesta, message: "Encuesta por ID recuperada exitosamente" });
+    } catch (e) {
+        console.log(e)
+        return res.status(400).json({ status: 400, message: e.message });
     }
 }
 
 // Eliminar encuestas
 exports.removeEncuesta = async function (req, res, next) {
     var id = req.body.id;
-  
+
     try {
         var deleted = await EncuestaService.deleteEncuesta(id);
         return res.status(200).send("Encuesta eliminada existosamente");
-        
-        
+
+
     } catch (e) {
         console.log(e)
-        return res.status(400).json({status: 400, message: e.message})
+        return res.status(400).json({ status: 400, message: e.message })
     }
 }

@@ -19,5 +19,6 @@ router.post('/contacto', Authorization, ContactoController.createContacto)
 router.post('/encuesta', EncuestaController.createEncuesta)
 router.get('/tencuesta', Authorization, EncuestaController.getEncuesta)
 router.post('/bencuesta', Authorization, EncuestaController.removeEncuesta)
+router.post('/encuestaid',Authorization, EncuestaController.getEncuestaID)
 
 module.exports = router;

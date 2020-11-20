@@ -111,6 +111,23 @@ exports.getEncuesta = async function (query, page, limit) {
     }
 }
 
+// Recupero encuesta
+exports.getEncuestaID = async function (query, page, limit) {
+
+    var options = {
+        page,
+        limit
+    }
+    try {
+        var Encuestas = await Encuesta.paginate(query, options)
+        return Encuestas;
+        
+    } catch (e) {
+        console.log("error servicio", e)
+        throw Error('Error en el paginado de las encuestas por ID');
+    }
+}
+
 // Borro encuestas
 exports.deleteEncuesta = async function (id) {
 
