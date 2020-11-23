@@ -72,6 +72,8 @@ var EncuestaSchema = new mongoose.Schema({
     P5opcion5: String,
     P5valorref1: String,
 
+    date: Date
+
 })
 
 EncuestaSchema.plugin(mongoosePaginate)

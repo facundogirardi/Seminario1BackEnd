@@ -71,6 +71,8 @@ var EncuestaRespSchema = new mongoose.Schema({
     P5respuesta5: String,
     P5opcion5: String,
     P5valorref1: String,
+    
+    date: Date
 
 })
 

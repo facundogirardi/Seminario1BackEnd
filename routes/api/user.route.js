@@ -3,23 +3,27 @@ var router = express.Router()
 var UserController = require('../../controllers/users.controller');
 var ContactoController = require('../../controllers/contacto.controller');
 var EncuestaController = require('../../controllers/encuesta.controller');
+var MailController = require('../../controllers/mail.controller');
 var Authorization = require('../../auth/authorization');
 
 // Endpoints usuarios
-router.post('/registration', Authorization, UserController.createUser)
+router.post('/registration', UserController.createUser)
 router.post('/login/', UserController.loginUser)
-router.get('/tusuarios', Authorization, UserController.getUsers)
+router.get('/tusuarios', UserController.getUsers)
 router.put('/actualizacion', UserController.updateUser)
-router.post('/usr', Authorization, UserController.removeUser)
+router.post('/usr', UserController.removeUser)
 
 // Endpoints contacto
-router.post('/contacto', Authorization, ContactoController.createContacto)
+router.post('/contacto', ContactoController.createContacto)
 
 // Endpoints encuesta
 router.post('/encuesta', EncuestaController.createEncuesta)
-router.get('/tencuesta', Authorization, EncuestaController.getEncuesta)
-router.post('/bencuesta', Authorization, EncuestaController.removeEncuesta)
+router.get('/tencuesta', EncuestaController.getEncuesta)
+router.post('/bencuesta', EncuestaController.removeEncuesta)
 router.post('/encuestaid', EncuestaController.getEncuestaID)
 router.post('/encuestaResp', EncuestaController.createEncuestaResp)
+
+// Envio de mails
+router.post('/EnvioMail', MailController.sendEmail)
 
 module.exports = router;

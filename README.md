@@ -196,6 +196,8 @@ Campos
  * P5opcion5: String
  * P5valorref1: String
 
+ * date: Date
+
 <img src="https://i.ibb.co/GH7j9jP/crearencuesta.png"/>
 
 <b><p>Eliminar encuesta (/bencuesta)</b></p>
@@ -294,8 +296,24 @@ Campos
  * P5respuesta5: String
  * P5opcion5: String
  * P5valorref1: String
+ 
+ * date: Date
+
 
 <img src="https://i.ibb.co/nnBSLnD/2020-11-20-18-05-22-Window.png"/>
+
+<b><p>Envio de mail (/envioMail)</b></p>
+<p>Se utiliza para realizar un envio de agradecimiento al usuario luego de utilizar el sistema</p>
+<p>Metodo : POST</p>
+
+Campos
+
+ * destinatario: String
+ * asunto: String
+ * texto: String
+
+<img src="https://i.ibb.co/0CDVKj3/mail.png"/>
+
 
 ## Base de Datos
 
