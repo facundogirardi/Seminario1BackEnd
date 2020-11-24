@@ -96,27 +96,22 @@ exports.createEncuestaResp = async function (req, res, next) {
 
         pregunta1: req.body.pregunta1,
         P1respuesta: req.body.P1respuesta,
-        P1opcion: req.body.P1opcion,
         P1valorref: req.body.P1valorref,
 
         pregunta2: req.body.pregunta2,
         P2respuesta: req.body.P2respuesta,
-        P2opcion: req.body.P2opcion,
         P2valorref: req.body.P2valorref,
 
         pregunta3: req.body.pregunta3,
         P3respuesta: req.body.P3respuesta,
-        P3opcion: req.body.P3opcion,
         P3valorref: req.body.P3valorref,
 
         pregunta4: req.body.pregunta4,
         P4respuesta: req.body.P4respuesta,
-        P4opcion: req.body.P4opcion,
         P4valorref: req.body.P4valorref,
 
         pregunta5: req.body.pregunta5,
         P5respuesta: req.body.P5respuesta,
-        P5opcion: req.body.P5opcion,
         P5valorref: req.body.P5valorref,
 
     }

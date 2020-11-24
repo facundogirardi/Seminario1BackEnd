@@ -103,27 +103,22 @@ exports.createEncuestaResp = async function (encuesta) {
 
         pregunta1: encuesta.pregunta1,
         P1respuesta: encuesta.P1respuesta,
-        P1opcion: encuesta.P1opcion,
         P1valorref: encuesta.P1valorref,
 
         pregunta2: encuesta.pregunta2,
         P2respuesta: encuesta.P2respuesta,
-        P2opcion: encuesta.P2opcion,
         P2valorref: encuesta.P2valorref,
 
         pregunta3: encuesta.pregunta3,
         P3respuesta: encuesta.P3respuesta,
-        P3opcion: encuesta.P3opcion,
         P3valorref: encuesta.P3valorref,
 
         pregunta4: encuesta.pregunta4,
         P4respuesta: encuesta.P4respuesta,
-        P4opcion: encuesta.P4opcion,
         P4valorref: encuesta.P4valorref,
 
         pregunta5: encuesta.pregunta5,
         P5respuesta: encuesta.P5respuesta,
-        P5opcion: encuesta.P5opcion,
         P5valorref: encuesta.P5valorref,
 
         date: new Date()
