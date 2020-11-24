@@ -149,7 +149,7 @@ exports.getEncuestaID = async function (req, res, next) {
     var page = req.query.page ? req.query.page : 1
     var limit = req.query.limit ? req.query.limit : 1000;
     let filtro = {
-        titulo: req.body.titulo
+        id: req.body._id
     }
     try {
         var Encuesta = await EncuestaService.getEncuestaID(filtro, page, limit)
