@@ -3,7 +3,6 @@ var router = express.Router()
 var UserController = require('../../controllers/users.controller');
 var ContactoController = require('../../controllers/contacto.controller');
 var EncuestaController = require('../../controllers/encuesta.controller');
-var MailController = require('../../controllers/mail.controller');
 var Authorization = require('../../auth/authorization');
 
 // Endpoints usuarios
@@ -22,8 +21,5 @@ router.get('/tencuesta', EncuestaController.getEncuesta)
 router.post('/bencuesta', EncuestaController.removeEncuesta)
 router.post('/encuestaid', EncuestaController.getEncuestaID)
 router.post('/encuestaResp', EncuestaController.createEncuestaResp)
-
-// Envio de mails
-router.post('/EnvioMail', MailController.sendEmail)
 
 module.exports = router;

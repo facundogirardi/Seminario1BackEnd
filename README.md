@@ -256,19 +256,6 @@ Campos
 
 <img src="https://i.ibb.co/FWVm70C/2020-11-25-12-27-00-Microsoft-Store.png"/>
 
-<b><p>Envio de mail (/envioMail)</b></p>
-<p>Se utiliza para realizar un envio de agradecimiento al usuario luego de utilizar el sistema</p>
-<p>Metodo : POST</p>
-
-Campos
-
- * destinatario: String
- * asunto: String
- * texto: String
-
-<img src="https://i.ibb.co/0CDVKj3/mail.png"/>
-
-
 ## Base de Datos
 
 <p>Para la base de datos utilizamos MongoDB</p>
