@@ -124,7 +124,7 @@ exports.createEncuestaResp = async function (encuesta) {
         date: new Date()
 
     })
-    console.log("newEncuesta",newEncuesta)
+
     try {
         var savedEncuesta = await newEncuesta.save();
         var token = jwt.sign({
