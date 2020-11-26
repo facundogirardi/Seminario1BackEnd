@@ -1,7 +1,7 @@
  ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
 
 ## Presentacion del producto
-![Product Presentation Image](https://i.ibb.co/BzWtgP6/2020-11-20-09-37-06-Window.png)
+![Product Presentation Image](https://i.ibb.co/TbfGrL5/landing.png)
 
 ## Descripcion
 
@@ -233,24 +233,24 @@ Campos
  * tamaño: String
     
  * pregunta1: String
- * P1respuesta: String
- * P1valorref: String    
+ * P1respuesta: Number
+ * P1valorref: Number    
     
  * pregunta2: String
- * P2respuesta: String
- * P2valorref: String
+ * P2respuesta: Number
+ * P2valorref: Number
     
  * pregunta3: String
- * P3respuesta: String
- * P3valorref: String
+ * P3respuesta: Number
+ * P3valorref: Number
     
  * pregunta4: String
- * P4respuesta: String
- * P4valorref: String
+ * P4respuesta: Number
+ * P4valorref: Number
 
  * pregunta5: String
- * P5respuesta: String
- * P5valorref: String
+ * P5respuesta: Number
+ * P5valorref: Number
  
  * date: Date
 
