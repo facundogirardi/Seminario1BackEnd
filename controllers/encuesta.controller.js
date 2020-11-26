@@ -93,6 +93,7 @@ exports.createEncuestaResp = async function (req, res, next) {
         titulo: req.body.titulo,
         sector: req.body.sector,
         tamaño: req.body.tamaño,
+        idbusqueda: req.body.idbusqueda,
 
         pregunta1: req.body.pregunta1,
         P1respuesta: req.body.P1respuesta,
@@ -149,6 +150,30 @@ exports.getEncuestaID = async function (req, res, next) {
     }
     try {
         var Encuesta = await EncuestaService.getEncuesta(filtro, page, limit)
+
+        if (Encuesta.total === 0)
+            return res.status(201).json({ status: 201, data: Encuesta, message: "No existe la encuesta por ID" });
+        else
+            return res.status(200).json({ status: 200, data: Encuesta, message: "Encuesta por ID recuperada exitosamente" });
+    } catch (e) {
+
+        console.log(e)
+        return res.status(400).json({ status: 400, message: e.message });
+    }
+} 
+
+
+// Traigo encuestas resueltas por ID
+exports.getEncuestaRespID = async function (req, res, next) {
+
+    var page = req.query.page ? req.query.page : 1
+    var limit = req.query.limit ? req.query.limit : 1000;
+
+    var filtro = {
+        idbusqueda: req.body.idbusqueda
+    }
+    try {
+        var Encuesta = await EncuestaService.getEncuestaID(filtro, page, limit)
 
         if (Encuesta.total === 0)
             return res.status(201).json({ status: 201, data: Encuesta, message: "No existe la encuesta por ID" });

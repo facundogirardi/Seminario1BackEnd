@@ -100,6 +100,7 @@ exports.createEncuestaResp = async function (encuesta) {
         titulo: encuesta.titulo,
         sector: encuesta.sector,
         tamaño: encuesta.tamaño,
+        idbusqueda: encuesta.idbusqueda,
 
         pregunta1: encuesta.pregunta1,
         P1respuesta: encuesta.P1respuesta,
@@ -157,17 +158,17 @@ exports.getEncuesta = async function (query, page, limit) {
     }
 }
 
-// Recupero encuesta
+// Recupero encuesta por ID
 exports.getEncuestaID = async function (query, page, limit) {
-
     var options = {
         page,
         limit
     }
+
     try {
-        var Encuestas = await Encuesta.paginate(query, options)
+        var Encuestas = await EncuestaResp.paginate(query, options)
         return Encuestas;
-        
+
     } catch (e) {
         console.log("error servicio", e)
         throw Error('Error en el paginado de las encuestas por ID');

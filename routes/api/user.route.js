@@ -20,6 +20,7 @@ router.post('/encuesta', EncuestaController.createEncuesta)
 router.get('/tencuesta', EncuestaController.getEncuesta)
 router.post('/bencuesta', EncuestaController.removeEncuesta)
 router.post('/encuestaid', EncuestaController.getEncuestaID)
+router.post('/encuestarepid', EncuestaController.getEncuestaRespID)
 router.post('/encuestaResp', EncuestaController.createEncuestaResp)
 
 module.exports = router;
