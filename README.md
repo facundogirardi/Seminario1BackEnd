@@ -1,7 +1,7 @@
  ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
 
 ## Presentacion del producto
-![Product Presentation Image](https://i.ibb.co/yYb05nN/Sin-t-tulo.png)
+![Product Presentation Image](https://i.ibb.co/5svhyYy/Sin-t-tulo.png)
 
 ## Descripcion
 
@@ -57,14 +57,12 @@ El backend tiene configurado los siguientes endpoints :
 <p>Se utiliza para poder registrar los datos de contacto del usuario</p>
 <p>Metodo : POST</p>
 
- * razonsocial: String
+ * nombre: String
  * email: String
  * region: String
- * tamaño: String
+ * opinion: String
 
-<img src="https://i.ibb.co/R2Sn3JY/contacto.png"/>
-
-## Base de Datos
+ ## Base de Datos
 
 <p>Para la base de datos utilizamos MongoDB</p>
 <p>Poseemos el siguiente Cluster configurado <b>backendseminario1.k3wui.mongodb.net</b></p>
