@@ -5,10 +5,10 @@ _this = this;
 exports.createContacto = async function (req, res, next) {
 
     var Contacto = {
-        razonsocial: req.body.razonsocial,
+        nombre: req.body.nombre,
         email: req.body.email,
         region: req.body.region,
-        tamaño: req.body.tamaño
+        opinion: req.body.opinion
 
     }
     try {

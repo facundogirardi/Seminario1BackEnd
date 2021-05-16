@@ -7,10 +7,10 @@ _this = this
 // creo contacto
 exports.createContacto = async function (contacto) {
     var newContacto = new Contacto({
-        razonsocial: contacto.razonsocial,
+        nombre: contacto.nombre,
         email: contacto.email,
         region: contacto.region,
-        tamaño: contacto.tamaño,
+        opinion: contacto.opinion,
         date: new Date(),
 
     })

@@ -2,10 +2,10 @@ var mongoose = require('mongoose')
 var mongoosePaginate = require('mongoose-paginate')
 
 var ContactoSchema = new mongoose.Schema({
-    razonsocial: String,
+    nombre: String,
     email: String,
     region: String,
-    tamaño: String
+    opinion: String
 
 })
 
