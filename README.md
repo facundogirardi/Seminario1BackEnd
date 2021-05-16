@@ -17,7 +17,7 @@ https://www.observatoriopyme.org.ar/la-fundacion/historia-y-actualidad/
 * [Base de datos](#Base-de-datos)
 * [Recursos](#Recursos)
 
-## Integrantes grupo 6
+## Integrantes grupo 7
 
 * Amarilla, Fernando Ezequiel         <b>Legajo : 1016533</b>
 * Alvarez Jurado, Ignacio             <b>Legajo : 1096542</b>
