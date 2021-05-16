@@ -6,14 +6,12 @@
 ## Descripcion
 
 <p>Nuestro proyecto consta en realizar una predicion de compra en Stock y mejorar la comunicacion con el cliente </p>
-https://www.observatoriopyme.org.ar/la-fundacion/historia-y-actualidad/
-
+ 
 ## Tabla de contenidos
 
 * [Integrantes](#Integrantes)
 * [Tecnologia](#Tecnologia)
 * [Instalacion](#Instalacion)
-* [End-Points](#End-Points)
 * [Base de datos](#Base-de-datos)
 * [Recursos](#Recursos)
 
@@ -49,20 +47,7 @@ https://www.observatoriopyme.org.ar/la-fundacion/historia-y-actualidad/
 * Se levantará en local http://localhost:4000/
 * Tambien se encuentra hosteado en Heroku https://api-benchmark-back.herokuapp.com/
 
-## End-Points
-
-El backend tiene configurado los siguientes endpoints :
-
-<b><p>Contacto (/contacto)</b></p>
-<p>Se utiliza para poder registrar los datos de contacto del usuario</p>
-<p>Metodo : POST</p>
-
- * nombre: String
- * email: String
- * region: String
- * opinion: String
-
- ## Base de Datos
+## Base de Datos
 
 <p>Para la base de datos utilizamos MongoDB</p>
 <p>Poseemos el siguiente Cluster configurado <b>backendseminario1.k3wui.mongodb.net</b></p>
