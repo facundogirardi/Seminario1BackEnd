@@ -10,6 +10,7 @@ var ReporteSchema = new mongoose.Schema({
     mes1: Number,
     mes2: Number,
     mes3: Number,
+    resultado: String,
     date: Date
 })
 

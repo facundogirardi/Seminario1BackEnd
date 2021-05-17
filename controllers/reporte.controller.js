@@ -15,6 +15,7 @@ exports.createReporte = async function (req, res, next) {
         mes1: req.body.mes1,
         mes2: req.body.mes2,
         mes3: req.body.mes3,
+        resultado: req.body.resultado,
     }
     try {
          

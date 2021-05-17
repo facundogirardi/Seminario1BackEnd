@@ -14,6 +14,7 @@ exports.createReporte = async function (reporte) {
         mes1: reporte.mes1,
         mes2: reporte.mes2,
         mes3: reporte.mes3,
+        resultado: reporte.resultado,
         date: new Date()
 
     })
