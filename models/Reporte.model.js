@@ -7,6 +7,7 @@ var ReporteSchema = new mongoose.Schema({
     presentacion: String,
     laboratorio: String,
     precio: Number,
+    cantidad: Number,
     mes1: Number,
     mes2: Number,
     mes3: Number,

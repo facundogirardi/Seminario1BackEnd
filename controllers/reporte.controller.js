@@ -12,6 +12,7 @@ exports.createReporte = async function (req, res, next) {
         presentacion: req.body.presentacion,
         laboratorio: req.body.laboratorio,
         precio: req.body.precio,
+        cantidad: req.body.cantidad,
         mes1: req.body.mes1,
         mes2: req.body.mes2,
         mes3: req.body.mes3,
