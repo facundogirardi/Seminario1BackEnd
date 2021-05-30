@@ -3,6 +3,8 @@ var mongoosePaginate = require('mongoose-paginate')
 
 var ReporteSchema = new mongoose.Schema({
     droga: String,
+    pedido: String,
+    codigodroducto: String,
     marca: String,
     presentacion: String,
     laboratorio: String,

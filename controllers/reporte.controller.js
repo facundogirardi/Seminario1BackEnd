@@ -7,6 +7,8 @@ _this = this;
 exports.createReporte = async function (req, res, next) {
 
     var Reporte = {
+        pedido: req.body.pedido,
+        codigoproducto: req.body.codigoproducto,
         droga: req.body.droga,
         marca: req.body.marca,
         presentacion: req.body.presentacion,

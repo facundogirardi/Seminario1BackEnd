@@ -8,6 +8,8 @@ exports.createReporte = async function (reporte) {
     var newReporte = new Reporte({
         droga: reporte.droga,
         marca: reporte.marca,
+        pedido: reporte.pedido,
+        codigopedido: reporte.codigopedido,
         presentacion: reporte.presentacion,
         precio: reporte.precio,
         cantidad: reporte.cantidad,
