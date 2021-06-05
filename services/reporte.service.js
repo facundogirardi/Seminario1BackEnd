@@ -13,10 +13,13 @@ exports.createReporte = async function (reporte) {
         presentacion: reporte.presentacion,
         precio: reporte.precio,
         cantidad: reporte.cantidad,
+        acuerdo: reporte.acuerdo,
         laboratorio: reporte.laboratorio,
         mes1: reporte.mes1,
         mes2: reporte.mes2,
         mes3: reporte.mes3,
+        valor1: reporte.valor1,
+        valor2: reporte.valor2,
         resultado: reporte.resultado,
         date: new Date()
 
