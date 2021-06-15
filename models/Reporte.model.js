@@ -9,12 +9,21 @@ var ReporteSchema = new mongoose.Schema({
     presentacion: String,
     laboratorio: String,
     precio: Number,
-    cantidad: Number,
+
+    cantidadvendida: Number,
+
     acuerdo: String,
-    mes1: Number,
-    mes2: Number,
-    mes3: Number,
+    valoracuerdo: Number,
+
+    mososo: String,
+    valormoroso: Number,
+
+    cronologico: String,
+    valorcronologico: Number,
+  
     resultado: String,
+    valorresultado: Number,
+
     date: Date
 })
 
